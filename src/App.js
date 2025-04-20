@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Main from "./components/Main";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
+const App = () => {
+  const [newsData, setNewsData] = useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<Main setNewsData={setNewsData} newsData={newsData} />}
+          />
+          <Route path="/news/:id" element={<Main newsData={newsData} />} />
+        </Routes>
+      </BrowserRouter>
+
+      <div className="footer">
+        <p>© 2023 News App. All rights reserved.</p>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

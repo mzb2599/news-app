@@ -1,0 +1,8 @@
+.news-articles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 3 cards per row */
+  grid-auto-rows: 450px; /* Set a consistent height for all rows */
+  gap: 0.25rem; /* Space between cards */
+  width: 100%; /* Ensure it doesn't overflow horizontally */
+  height: max-content;
+}
