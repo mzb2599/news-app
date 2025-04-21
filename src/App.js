@@ -1,26 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Main from "./components/Main";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "@testing-library/jest-dom";
 
 const App = () => {
   const [newsData, setNewsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      const API_URL =
+        "https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=JR9XguLDYqzlGZ2KLieJK8MCo6hjplhF";
+      //process.env.REACT_APP_API_URL;
+      console.log(API_URL);
+
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        setNewsData(data.results);
+        console.log(data.results);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, [setNewsData]);
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={<Main setNewsData={setNewsData} newsData={newsData} />}
-          />
-          <Route path="/news/:id" element={<Main newsData={newsData} />} />
-        </Routes>
-      </BrowserRouter>
-
-      <div className="footer">
-        <p>© 2023 News App. All rights reserved.</p>
-      </div>
+      <Main newsData={newsData} loading={loading}/>
     </div>
   );
 };

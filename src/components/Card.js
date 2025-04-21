@@ -10,16 +10,21 @@ const MediaCard = ({ article }) => {
     <Card sx={{ maxWidth: 345, padding: "10px", border: "1px solid #ccc" }}>
       <CardMedia
         sx={{ height: 180 }}
-        image={article?.media[0] && article?.media[0]["media-metadata"][2]?.url}
+        image={article?.media && article?.media[0]["media-metadata"][2]?.url}
         title={article.title}
         alt={article.title}
       />
       <CardContent sx={{ height: 180 }}>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          data-testid="article-title"
+        >
           {article.title}
         </Typography>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          {article.abstract.length > 150
+          {article.abstract && article.abstract.length > 150
             ? article.abstract.slice(0, 100) + "..."
             : article.abstract}
           {
