@@ -19,6 +19,10 @@ describe("template spec", () => {
     // Check if the first article image is displayed correctly
     cy.get(':nth-child(1) > .MuiPaper-root > .MuiCardMedia-root').should("exist");
 
+    // Check if the first article title is displayed correctly
+    cy.get(':nth-child(1) > .MuiPaper-root > .MuiCardContent-root > [data-testid="article-title"]').should("exist");
+
     // Check if the first article abstract is displayed correctly
+    cy.get(':nth-child(1) > .MuiPaper-root > .MuiCardContent-root > .MuiTypography-body2').should("exist");
       });
 });
