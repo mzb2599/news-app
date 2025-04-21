@@ -40,6 +40,10 @@ REACT_APP_API_KEY=your-nyt-api-key
 
 4. npm start
 
+5. For running jest test cases: npm test
+
+6. For running end to end cyprus test cases: npx cyprus open 
+
 Project Structure:
 
 src/
