@@ -8,9 +8,9 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
+      const api_key = process.env.REACT_APP_API_KEY;
       const API_URL =
-        "https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=JR9XguLDYqzlGZ2KLieJK8MCo6hjplhF";
-      //process.env.REACT_APP_API_URL;
+        `https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=${api_key}`;
       console.log(API_URL);
 
       try {

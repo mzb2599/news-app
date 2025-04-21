@@ -2,7 +2,7 @@ import Card from "./Card";
 import "../css/Main.css";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const Main = ({ newsData, loading=false }) => {
+const Main = ({ newsData, loading = false }) => {
   return (
     <div className="main">
       <h1>News Articles</h1>

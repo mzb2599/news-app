@@ -1,13 +1,13 @@
-import { render, screen, expect } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import News from "../components/Main"; // Correct import for the Main component
 import { mockArticlesData } from "./mockdata";
 
-test("renders article titles", async () => {
+test("renders article titles", () => {
   // Render the Main component with mock data
   render(<News newsData={mockArticlesData} />);
 
   // Query all elements with the test ID "article-title"
-  const articleTitles = await screen.getAllByTestId("article-title");
+  const articleTitles = screen.getAllByTestId("article-title");
 
   // Assert that the number of titles matches the mock data length
   expect(articleTitles).toHaveLength(mockArticlesData.length);
