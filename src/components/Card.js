@@ -10,7 +10,7 @@ const MediaCard = ({ article }) => {
     <Card sx={{ maxWidth: 345, padding: "10px", border: "1px solid #ccc" }}>
       <CardMedia
         sx={{ height: 180 }}
-        image={article?.media && article?.media[0]["media-metadata"][2]?.url}
+        image={article?.media && (article?.media[0]?.["media-metadata"][1]?.url || article?.media[0]?.["media-metadata"][2]?.url)}
         title={article.title}
         alt={article.title}
       />

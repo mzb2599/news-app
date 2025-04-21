@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import News from "../components/Main"; // Correct import for the Main component
 import { mockArticlesData } from "./mockdata";
 
